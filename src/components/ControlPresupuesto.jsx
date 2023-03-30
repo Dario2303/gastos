@@ -1,6 +1,19 @@
-import React from 'react'
+import { useState, useEffect } from "react"
 
-const ControlPresupuesto = ({presupuesto}) => {
+
+const ControlPresupuesto = ({presupuesto, gastos}) => {
+
+  const [disponible, setDisponible] = useState(0)
+  const [gastado, setGastado] = useState(0)
+
+  useEffect(() => {
+    const totalGastado = gastos.reduce( (total, gasto) => gasto.cantidad + total, 0
+    )
+    const totalDisponible = presupuesto - totalGastado
+    setGastado(totalGastado);
+    setDisponible(totalDisponible)
+  }, [gastos])
+
 
     //dar formato de moneda
     const formatoCantidad = (cantidad)  => {
@@ -20,11 +33,11 @@ const ControlPresupuesto = ({presupuesto}) => {
         </p>
 
         <p>
-            <span>Disponible: </span>{formatoCantidad(0)}
+            <span>Disponible: </span>{formatoCantidad(disponible)}
         </p>
 
         <p>
-            <span>Gastado: </span>{formatoCantidad(0)}
+            <span>Gastado: </span>{formatoCantidad(gastado)}
         </p>
       </div>
     </div>
