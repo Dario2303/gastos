@@ -15,6 +15,7 @@ const Header = ({presupuesto,
     <header>
         <h1>Planificador de gastos</h1>
 
+        {/*por defecto abre nuevoPresupuesto, si el valor ingresado es valido abre cotrolPresupuesto*/}
         {isValidPresupuesto ? (
           <ControlPresupuesto
           presupuesto= {presupuesto}

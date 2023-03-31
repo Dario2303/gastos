@@ -17,12 +17,9 @@ function App() {
     Number(localStorage.getItem('presupuesto')) ?? 0
   );
   const [isValidPresupuesto, setIsValidPresupuesto] = useState(false)
-
   const [modal, setModal] = useState(false)
   const [animarModal, setAnimarModal] = useState(false)
-
   const [gastoEditar, setGastoEditar] = useState({})
-
   const [filtro, setFiltro] = useState('')
   const [gastosFiltrados, setGastosFiltrados] = useState([])
 
